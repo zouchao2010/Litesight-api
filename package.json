@@ -1,47 +1,31 @@
 {
-  "name": "insight-bitcore-api",
-  "description": "An open-source bitcoin blockchain API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the bitcoin network and build your own services with it.",
+  "name": "flappysight-bitcore-api",
+  "description": "An open-source Flappycoin blockchain API. The Flappysight API provides you with a convenient, powerful and simple way to query and broadcast data on the flappycoin network and build your own services with it.",
   "version": "0.2.11",
   "author": {
-    "name": "Ryan X Charles",
-    "email": "ryan@bitpay.com"
+    "name": "FlappyDEV",
+    "email": "dev@goflap.io"
   },
-  "repository": "git://github.com/bitpay/insight-api.git",
+  "repository": "git://github.com/FlappyDEV/flappysight-api.git",
   "contributors": [
     {
-      "name": "Matias Alejo Garcia",
-      "email": "ematiu@gmail.com"
-    },
-    {
-      "name": "Manuel Araoz",
-      "email": "manuelaraoz@gmail.com"
-    },
-    {
-      "name": "Mario Colque",
-      "email": "colquemario@gmail.com"
-    },
-    {
-      "name": "Gustavo Cortez",
-      "email": "cmgustavo83@gmail.com"
-    },
-    {
-      "name": "Juan Ignacio Sosa Lopez",
-      "email": "bechilandia@gmail.com"
+      "name": "FlappyDEV",
+      "email": "dev@goflap.io"
     }
   ],
   "bugs": {
-    "url": "https://github.com/bitpay/insight-api/issues"
+    "url": "https://github.com/FlappyDEV/flappysight-api/issues"
   },
-  "homepage": "https://github.com/bitpay/insight-api",
+  "homepage": "https://github.com/FlappyDEV/flappysight-api",
   "license": "MIT",
   "keywords": [
-    "insight",
-    "insight api",
+    "flappysight",
+    "flappy api",
     "blockchain",
-    "bitcoin api",
+    "flappycoin api",
     "blockchain api",
     "json",
-    "bitcore"
+    "flappycore"
   ],
   "engines": {
     "node": "*"
@@ -55,7 +39,7 @@
     "base58-native": "0.1.2",
     "bignum": "*",
     "bitauth": "^0.1.1",
-    "bitcore": "git://github.com/bitpay/bitcore.git#aa41c70cff2583d810664c073a324376c39c8b36",
+    "bitcore": "git://github.com/FlappyDEV/flappycore.git",
     "bufferput": "git://github.com/bitpay/node-bufferput.git",
     "buffertools": "*",
     "commander": "^2.3.0",
