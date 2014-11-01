@@ -1,13 +1,13 @@
 # *flappysight API*
 
-*flappysight API* is an open-source bitcoin blockchain REST
+*flappysight API* is an open-source flappycoin blockchain REST
 and websocket API. Flappysight API runs in NodeJS and uses LevelDB for storage. 
 
 This is a backend-only service. If you're looking for the web frontend application,
 take a look at https://github.com/FlappyDEV/flappysight.
 
-*Flappysight API* allows to develop bitcoin-related applications (such as wallets) that 
-require certain information from the blockchain that bitcoind does not provide.
+*Flappysight API* allows to develop flappycoin-related applications (such as wallets) that 
+require certain information from the blockchain that flappycoind does not provide.
 
 A blockchain explorer front-end has been developed on top of *Flappysight API*. It can
 be downloaded at [Github Flappysight Repository](https://github.com/FlappyDEV/flappysight).
@@ -15,17 +15,17 @@ be downloaded at [Github Flappysight Repository](https://github.com/FlappyDEV/fl
 
 ## Prerequisites
 
-* **bitcoind** - Download and Install [Bitcoin](http://bitcoin.org/en/download)
+* **flappycoind** - Download and Install [Flappycoin](https://github.com/flappycoin-project/flappycoin)
 
-*flappysight API* needs a *trusted* bitcoind node to run. *flappysight API* will connect to the node
-through the RPC API, bitcoin peer-to-peer protocol, and will even read its raw block .dat files for syncing.
+*flappysight API* needs a *trusted* flappycoind node to run. *flappysight API* will connect to the node
+through the RPC API, flappycoin peer-to-peer protocol, and will even read its raw block .dat files for syncing.
 
-Configure bitcoind to listen to RPC calls and set `txindex` to true.
-The easiest way to do this is by copying `./etc/bitcoind/bitcoin.conf` to your
-bitcoin data directory (usually `~/.bitcoin` on Linux, `%appdata%\Bitcoin\` on Windows,
-or `~/Library/Application Support/Bitcoin` on Mac OS X).
+Configure flappycoind to listen to RPC calls and set `txindex` to true.
+The easiest way to do this is by copying `./etc/flappycoind/flappycoin.conf` to your
+flappycoin data directory (usually `~/.flappycoin` on Linux, `%appdata%\Flappycoin\` on Windows,
+or `~/Library/Application Support/Flappycoin` on Mac OS X).
 
-bitcoind must be running and must have finished downloading the blockchain **before** running *flappysight API*.
+flappycoind must be running and must have finished downloading the blockchain **before** running *flappysight API*.
 
 
 * **Node.js v0.10.x** - Download and Install [Node.js](http://www.nodejs.org/download/).
@@ -61,13 +61,13 @@ bitcoind must be running and must have finished downloading the blockchain **bef
 All configuration is specified in the [config](config/) folder, particularly the [config.js](config/config.js) file. There you can specify your application name and database name. Certain configuration values are pulled from environment variables if they are defined:
 
 ```
-BITCOIND_HOST         # RPC bitcoind host
-BITCOIND_PORT         # RPC bitcoind Port
-BITCOIND_P2P_HOST     # P2P bitcoind Host (will default to BITCOIND_HOST, if specified)
-BITCOIND_P2P_PORT     # P2P bitcoind Port
+BITCOIND_HOST         # RPC flappycoind host
+BITCOIND_PORT         # RPC flappycoind Port
+BITCOIND_P2P_HOST     # P2P flappycoind Host (will default to BITCOIND_HOST, if specified)
+BITCOIND_P2P_PORT     # P2P flappycoind Port
 BITCOIND_USER         # RPC username
 BITCOIND_PASS         # RPC password
-BITCOIND_DATADIR      # bitcoind datadir. 'testnet3' will be appended automatically if testnet is used. NEED to finish with '/'. e.g: `/vol/data/`
+BITCOIND_DATADIR      # flappycoind datadir. 'testnet3' will be appended automatically if testnet is used. NEED to finish with '/'. e.g: `/vol/data/`
 INSIGHT_NETWORK [= 'livenet' | 'testnet']
 INSIGHT_PORT          # flappysight api port
 INSIGHT_DB            # Path where to store flappysight's internal DB. (defaults to $HOME/.flappysight)
@@ -83,33 +83,33 @@ ENABLE_HTTPS # if "true" it will server using SSL/HTTPS
 
 ```
 
-Make sure that bitcoind is configured to [accept incoming connections using 'rpcallowip'](https://en.bitcoin.it/wiki/Running_Bitcoin).
+Make sure that flappycoind is configured to [accept incoming connections using 'rpcallowip'](https://en.bitcoin.it/wiki/Running_Bitcoin).
 
 In case the network is changed (testnet to livenet or vice versa) levelDB database needs to be deleted. This can be performed running:
 ```util/sync.js -D``` and waiting for *flappysight* to synchronize again.  Once the database is deleted, the sync.js process can be safely interrupted (CTRL+C) and continued from the synchronization process embedded in main app.
 
 ## Synchronization
 
-The initial synchronization process scans the blockchain from the paired bitcoind server to update addresses and balances. *flappysight-api* needs exactly one trusted bitcoind node to run. This node must have finished downloading the blockchain before running *flappysight-api*.
+The initial synchronization process scans the blockchain from the paired flappycoind server to update addresses and balances. *flappysight-api* needs exactly one trusted flappycoind node to run. This node must have finished downloading the blockchain before running *flappysight-api*.
 
 While *flappysight* is synchronizing the website can be accessed (the sync process is embedded in the webserver), but there may be missing data or incorrect balances for addresses. The 'sync' status is shown at the `/api/sync` endpoint.
 
-The blockchain can be read from bitcoind's raw `.dat` files or RPC interface. 
+The blockchain can be read from flappycoind's raw `.dat` files or RPC interface. 
 Reading the information from the `.dat` files is much faster so it's the
 recommended (and default) alternative. `.dat` files are scanned in the default
-location for each platform (for example, `~/.bitcoin` on Linux). In case a
+location for each platform (for example, `~/.flappycoin` on Linux). In case a
 non-standard location is used, it needs to be defined (see the Configuration section).
 As of June 2014, using `.dat` files the sync process takes 9 hrs.
 for livenet and 30 mins. for testnet.
 
 While synchronizing the blockchain, *flappysight-api* listens for new blocks and
-transactions relayed by the bitcoind node. Those are also stored on *flappysight-api*'s database.
+transactions relayed by the flappycoind node. Those are also stored on *flappysight-api*'s database.
 In case *flappysight-api* is shutdown for a period of time, restarting it will trigger
 a partial (historic) synchronization of the blockchain. Depending on the size of
 that synchronization task, a reverse RPC or forward `.dat` syncing strategy will be used.
 
-If bitcoind is shutdown, *flappysight-api* needs to be stopped and restarted
-once bitcoind is restarted.
+If flappycoind is shutdown, *flappysight-api* needs to be stopped and restarted
+once flappycoind is restarted.
 
 ### Syncing old blockchain data manually
 
@@ -288,7 +288,7 @@ POST response:
   /api/peer
 ```
 
-### Status of the bitcoin network
+### Status of the flappycoin network
 ```
   /api/status?q=xxx
 ```
@@ -327,7 +327,7 @@ Sample output:
 }
 ```
 
-'<bitcoinAddress>': new transaction concerning <bitcoinAddress> received from network. This event is published in the '<bitcoinAddress>' room.
+'<flappycoinAddress>': new transaction concerning <flappycoinAddress> received from network. This event is published in the '<flappycoinAddress>' room.
 
 'status': every 1% increment on the sync task, this event will be triggered. This event is published in the 'sync' room.
 
