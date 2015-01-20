@@ -1,3 +1,5 @@
+Litesight-api coming soon
+
 # *flappysight API*
 
 *flappysight API* is an open-source flappycoin blockchain REST
