@@ -1,4 +1,4 @@
-Litesight-api coming soon
+dogesight-api coming soon
 
 # *flappysight API*
 
