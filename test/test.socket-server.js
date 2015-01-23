@@ -6,7 +6,7 @@ var expect = chai.expect;
 var sinon = require('sinon');
 
 var socket = require('../app/controllers/socket');
-var bitcore = require('flappycore');
+var bitcore = require('Litecore');
 var EventEmitter = require('events').EventEmitter;
 
 describe('socket server', function() {

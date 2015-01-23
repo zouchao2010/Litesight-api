@@ -1,31 +1,35 @@
 {
-  "name": "flappysight-bitcore-api",
-  "description": "An open-source Flappycoin blockchain API. The Flappysight API provides you with a convenient, powerful and simple way to query and broadcast data on the flappycoin network and build your own services with it.",
+  "name": "Litesight-bitcore-api",
+  "description": "An open-source Litecoin blockchain API. The Litesight API provides you with a convenient, powerful and simple way to query and broadcast data on the Litecoin network and build your own services with it.",
   "version": "0.2.11",
   "author": {
-    "name": "FlappyDEV",
-    "email": "dev@goflap.io"
+    "name": "pembo210",
+    "email": "pembo210@gmail.com"
   },
-  "repository": "git://github.com/FlappyDEV/flappysight-api.git",
+  "repository": "git://github.com/pembo210/Lightsight-api.git",
   "contributors": [
     {
       "name": "FlappyDEV",
       "email": "dev@goflap.io"
+    },
+   {
+      "name": "pembo210",
+      "email": "pembo210@gmail.com"
     }
   ],
   "bugs": {
-    "url": "https://github.com/FlappyDEV/flappysight-api/issues"
+    "url": "https://github.com/pembo210/Litesight-api/issues"
   },
-  "homepage": "https://github.com/FlappyDEV/flappysight-api",
+  "homepage": "https://github.com/pembo210/Litesight-api",
   "license": "MIT",
   "keywords": [
-    "flappysight",
-    "flappy api",
+    "litesight",
+    "litecoin",
     "blockchain",
-    "flappycoin api",
+    "litecoin api",
     "blockchain api",
     "json",
-    "flappycore"
+    "litecore"
   ],
   "engines": {
     "node": "*"
@@ -39,7 +43,7 @@
     "base58-native": "0.1.2",
     "bignum": "*",
     "bitauth": "^0.1.1",
-    "bitcore": "git://github.com/FlappyDEV/flappycore.git",
+    "bitcore": "git://github.com/pembo210/Litecore.git",
     "bufferput": "git://github.com/bitpay/node-bufferput.git",
     "buffertools": "*",
     "commander": "^2.3.0",

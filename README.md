@@ -1,33 +1,33 @@
 Litesight-api coming soon
 
-# *flappysight API*
+# *Litesight API*
 
-*flappysight API* is an open-source flappycoin blockchain REST
-and websocket API. Flappysight API runs in NodeJS and uses LevelDB for storage. 
+*Litesight API* is an open-source Litecoin blockchain REST
+and websocket API. Litesight API runs in NodeJS and uses LevelDB for storage. 
 
 This is a backend-only service. If you're looking for the web frontend application,
-take a look at https://github.com/FlappyDEV/flappysight.
+take a look at https://github.com/pembo210/Litesight.
 
-*Flappysight API* allows to develop flappycoin-related applications (such as wallets) that 
-require certain information from the blockchain that flappycoind does not provide.
+*Litesight API* allows to develop Litecoin-related applications (such as wallets) that 
+require certain information from the blockchain that litecoind does not provide.
 
-A blockchain explorer front-end has been developed on top of *Flappysight API*. It can
-be downloaded at [Github Flappysight Repository](https://github.com/FlappyDEV/flappysight).
+A blockchain explorer front-end has been developed on top of *Litesight API*. It can
+be downloaded at [Github Litesight Repository](https://github.com/pembo210/Litesight).
 
 
 ## Prerequisites
 
-* **flappycoind** - Download and Install [Flappycoin](https://github.com/flappycoin-project/flappycoin)
+* **litecoind** - Download and Install [litecoin](https://github.com/litecoin-project/litecoin)
 
-*flappysight API* needs a *trusted* flappycoind node to run. *flappysight API* will connect to the node
-through the RPC API, flappycoin peer-to-peer protocol, and will even read its raw block .dat files for syncing.
+*Litesight API* needs a *trusted* litecoind node to run. *Litesight API* will connect to the node
+through the RPC API, litecoin peer-to-peer protocol, and will even read its raw block .dat files for syncing.
 
-Configure flappycoind to listen to RPC calls and set `txindex` to true.
-The easiest way to do this is by copying `./etc/flappycoind/flappycoin.conf` to your
-flappycoin data directory (usually `~/.flappycoin` on Linux, `%appdata%\Flappycoin\` on Windows,
-or `~/Library/Application Support/Flappycoin` on Mac OS X).
+Configure litecoind to listen to RPC calls and set `txindex` to true.
+The easiest way to do this is by copying `./etc/litecoind/litecoin.conf` to your
+litecoin data directory (usually `~/.litecoin` on Linux, `%appdata%\Litecoin\` on Windows,
+or `~/Library/Application Support/Litecoin` on Mac OS X).
 
-flappycoind must be running and must have finished downloading the blockchain **before** running *flappysight API*.
+litecoind must be running and must have finished downloading the blockchain **before** running *Litesight API*.litecoin
 
 
 * **Node.js v0.10.x** - Download and Install [Node.js](http://www.nodejs.org/download/).
@@ -37,9 +37,9 @@ flappycoind must be running and must have finished downloading the blockchain **
 ## Quick Install
   Check the Prerequisites section above before installing.
 
-  To install Flappysight API, clone the main repository:
+  To install Litesight API, clone the main repository:
 
-    $ git clone https://github.com/FlappyDEV/flappysight-api && cd flappysight-api
+    $ git clone https://github.com/pembo210/Litesight-api && cd Litesight-api
 
   Install dependencies:
 
@@ -47,7 +47,7 @@ flappycoind must be running and must have finished downloading the blockchain **
 
   Run the main application:
 
-    $ node flappysight.js
+    $ node Litesight.js
 
   Then open a browser and go to:
 
@@ -63,16 +63,16 @@ flappycoind must be running and must have finished downloading the blockchain **
 All configuration is specified in the [config](config/) folder, particularly the [config.js](config/config.js) file. There you can specify your application name and database name. Certain configuration values are pulled from environment variables if they are defined:
 
 ```
-BITCOIND_HOST         # RPC flappycoind host
-BITCOIND_PORT         # RPC flappycoind Port
-BITCOIND_P2P_HOST     # P2P flappycoind Host (will default to BITCOIND_HOST, if specified)
-BITCOIND_P2P_PORT     # P2P flappycoind Port
+BITCOIND_HOST         # RPC litecoind host
+BITCOIND_PORT         # RPC litecoind Port
+BITCOIND_P2P_HOST     # P2P litecoind Host (will default to BITCOIND_HOST, if specified)
+BITCOIND_P2P_PORT     # P2P litecoind Port
 BITCOIND_USER         # RPC username
 BITCOIND_PASS         # RPC password
-BITCOIND_DATADIR      # flappycoind datadir. 'testnet3' will be appended automatically if testnet is used. NEED to finish with '/'. e.g: `/vol/data/`
+BITCOIND_DATADIR      # litecoind datadir. 'testnet3' will be appended automatically if testnet is used. NEED to finish with '/'. e.g: `/vol/data/`
 INSIGHT_NETWORK [= 'livenet' | 'testnet']
-INSIGHT_PORT          # flappysight api port
-INSIGHT_DB            # Path where to store flappysight's internal DB. (defaults to $HOME/.flappysight)
+INSIGHT_PORT          # Litesight api port
+INSIGHT_DB            # Path where to store Litesight's internal DB. (defaults to $HOME/.litecoin-insight)
 INSIGHT_SAFE_CONFIRMATIONS=6  # Nr. of confirmation needed to start caching transaction information   
 INSIGHT_IGNORE_CACHE  # True to ignore cache of spents in transaction, with more than INSIGHT_SAFE_CONFIRMATIONS confirmations. This is useful for tracking double spents for old transactions.
 ENABLE_MAILBOX # if "true" will enable mailbox plugin
@@ -85,33 +85,33 @@ ENABLE_HTTPS # if "true" it will server using SSL/HTTPS
 
 ```
 
-Make sure that flappycoind is configured to [accept incoming connections using 'rpcallowip'](https://en.bitcoin.it/wiki/Running_Bitcoin).
+Make sure that litecoind is configured to [accept incoming connections using 'rpcallowip'](https://en.bitcoin.it/wiki/Running_Bitcoin).
 
 In case the network is changed (testnet to livenet or vice versa) levelDB database needs to be deleted. This can be performed running:
-```util/sync.js -D``` and waiting for *flappysight* to synchronize again.  Once the database is deleted, the sync.js process can be safely interrupted (CTRL+C) and continued from the synchronization process embedded in main app.
+```util/sync.js -D``` and waiting for *Litesight* to synchronize again.  Once the database is deleted, the sync.js process can be safely interrupted (CTRL+C) and continued from the synchronization process embedded in main app.
 
 ## Synchronization
 
-The initial synchronization process scans the blockchain from the paired flappycoind server to update addresses and balances. *flappysight-api* needs exactly one trusted flappycoind node to run. This node must have finished downloading the blockchain before running *flappysight-api*.
+The initial synchronization process scans the blockchain from the paired litecoind server to update addresses and balances. *Litesight-api* needs exactly one trusted litecoind node to run. This node must have finished downloading the blockchain before running *Litesight-api*.
 
-While *flappysight* is synchronizing the website can be accessed (the sync process is embedded in the webserver), but there may be missing data or incorrect balances for addresses. The 'sync' status is shown at the `/api/sync` endpoint.
+While *Litesight* is synchronizing the website can be accessed (the sync process is embedded in the webserver), but there may be missing data or incorrect balances for addresses. The 'sync' status is shown at the `/api/sync` endpoint.
 
-The blockchain can be read from flappycoind's raw `.dat` files or RPC interface. 
+The blockchain can be read from litecoind's raw `.dat` files or RPC interface. 
 Reading the information from the `.dat` files is much faster so it's the
 recommended (and default) alternative. `.dat` files are scanned in the default
-location for each platform (for example, `~/.flappycoin` on Linux). In case a
+location for each platform (for example, `~/.litecoin` on Linux). In case a
 non-standard location is used, it needs to be defined (see the Configuration section).
 As of June 2014, using `.dat` files the sync process takes 9 hrs.
 for livenet and 30 mins. for testnet.
 
-While synchronizing the blockchain, *flappysight-api* listens for new blocks and
-transactions relayed by the flappycoind node. Those are also stored on *flappysight-api*'s database.
-In case *flappysight-api* is shutdown for a period of time, restarting it will trigger
+While synchronizing the blockchain, *Litesight-api* listens for new blocks and
+transactions relayed by the litecoind node. Those are also stored on *Litesight-api*'s database.
+In case *Litesight-api* is shutdown for a period of time, restarting it will trigger
 a partial (historic) synchronization of the blockchain. Depending on the size of
 that synchronization task, a reverse RPC or forward `.dat` syncing strategy will be used.
 
-If flappycoind is shutdown, *flappysight-api* needs to be stopped and restarted
-once flappycoind is restarted.
+If litecoind is shutdown, *Litesight-api* needs to be stopped and restarted
+once litecoind is restarted.
 
 ### Syncing old blockchain data manually
 
@@ -122,24 +122,24 @@ once flappycoind is restarted.
   Check util/sync.js --help for options, particulary -D to erase the current DB.
 
   *NOTE*: there is no need to run this manually since the historic synchronization
-  is built in into the web application. Running *flappysight-api* normally will trigger
+  is built in into the web application. Running *Litesight-api* normally will trigger
   the historic sync automatically.
 
 
 ### DB storage requirement
 
-To store the blockchain and address related information, *flappysight-api* uses LevelDB.
+To store the blockchain and address related information, *Litesight-api* uses LevelDB.
 Two DBs are created: txs and blocks. By default these are stored on
 
-  ``~/.flappysight/``
+  ``~/.litecoin-insight/``
 
-Please note that some older versions of Flappysight-API store that on `<flappysight's root>/db`.
+Please note that some older versions of Litesight-API store that on `<Litesight's root>/db`.
 
 This can be changed at config/config.js. As of June 2014, storing the livenet blockchain takes ~35GB of disk space (2GB for the testnet).
 
 ## Development
 
-To run flappysight locally for development with grunt:
+To run Litesight locally for development with grunt:
 
 ```$ NODE_ENV=development grunt```
 
@@ -148,7 +148,7 @@ To run the tests
 ```$ grunt test```
 
 
-Contributions and suggestions are welcome at [flappysight-api github repository](https://github.com/FlappyDEV/flappysight-api).
+Contributions and suggestions are welcome at [Litesight-api github repository](https://github.com/pembo210/Litesight-api).
 
 ## Caching schema
 
@@ -166,7 +166,7 @@ to ignore the cache in a particular API request.
 
 ## API
 
-By default, flappysight provides a REST API at `/api`, but this prefix is configurable from the var `apiPrefix` in the `config.js` file.
+By default, Litesight provides a REST API at `/api`, but this prefix is configurable from the var `apiPrefix` in the `config.js` file.
 
 The end-points are:
 
@@ -290,7 +290,7 @@ POST response:
   /api/peer
 ```
 
-### Status of the flappycoin network
+### Status of the litecoin network
 ```
   /api/status?q=xxx
 ```
@@ -306,7 +306,7 @@ Where "xxx" can be:
 ## Web Socket API
 The web socket API is served using [socket.io](http://socket.io).
 
-The following are the events published by flappysight:
+The following are the events published by Litesight:
 
 'tx': new transaction received from network. This event is published in the 'inv' room. Data will be a app/models/Transaction object.
 Sample output:
@@ -329,7 +329,7 @@ Sample output:
 }
 ```
 
-'<flappycoinAddress>': new transaction concerning <flappycoinAddress> received from network. This event is published in the '<flappycoinAddress>' room.
+'<litecoinAddress>': new transaction concerning <litecoinAddress> received from network. This event is published in the '<litecoinAddress>' room.
 
 'status': every 1% increment on the sync task, this event will be triggered. This event is published in the 'sync' room.
 
@@ -349,18 +349,18 @@ Sample output:
 
 ### Example Usage
 
-The following html page connects to the socket.io flappysight API and listens for new transactions.
+The following html page connects to the socket.io Litesight API and listens for new transactions.
 
 html
 ```
 <html>
 <body>
-  <script src="http://<flappysight-server>:<port>/socket.io/socket.io.js"></script>
+  <script src="http://<Litesight-server>:<port>/socket.io/socket.io.js"></script>
   <script>
     eventToListenTo = 'tx'
     room = 'inv'
 
-    var socket = io("http://<flappysight-server>:<port>/");
+    var socket = io("http://<Litesight-server>:<port>/");
     socket.on('connect', function() {
       // Join the room.
       socket.emit('subscribe', room);
