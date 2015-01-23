@@ -1,5 +1,3 @@
-Litesight-api coming soon
-
 # *Litesight API*
 
 *Litesight API* is an open-source Litecoin blockchain REST
