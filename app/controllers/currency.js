@@ -44,7 +44,7 @@ exports.index = function(req, res) {
     timestamp = currentTime;
 
     _request('https://btc-e.com/api/2/ltc_usd/ticker/', function(err, data) {
-      if (!err) btceusdRate = parseFloat(JSON.parse(data).ticker.last);
+      if (!err) btceusdRate = parseFloat(JSON.parse(data).ticker.last).toFixed(3);
 
       res.jsonp({
         status: 200,
