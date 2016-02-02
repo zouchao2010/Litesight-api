@@ -3,24 +3,24 @@
   "description": "An open-source Litecoin blockchain API. The Litesight API provides you with a convenient, powerful and simple way to query and broadcast data on the Litecoin network and build your own services with it.",
   "version": "0.2.11",
   "author": {
-    "name": "pembo210",
-    "email": "pembo210@gmail.com"
+    "name": "zouchao2010",
+    "email": "zouchao2010@gmail.com"
   },
-  "repository": "git://github.com/pembo210/Litesight-api.git",
+  "repository": "git://github.com/zouchao2010/Litesight-api.git",
   "contributors": [
     {
       "name": "FlappyDEV",
       "email": "dev@goflap.io"
     },
    {
-      "name": "pembo210",
-      "email": "pembo210@gmail.com"
+      "name": "zouchao2010",
+      "email": "zouchao2010@gmail.com"
     }
   ],
   "bugs": {
-    "url": "https://github.com/pembo210/Litesight-api/issues"
+    "url": "https://github.com/zouchao2010/Litesight-api/issues"
   },
-  "homepage": "https://github.com/pembo210/Litesight-api",
+  "homepage": "https://github.com/zouchao2010/Litesight-api",
   "license": "MIT",
   "keywords": [
     "litesight",
@@ -43,7 +43,7 @@
     "base58-native": "0.1.2",
     "bignum": "*",
     "bitauth": "^0.1.1",
-    "bitcore": "git://github.com/pembo210/Litecore.git",
+    "bitcore": "git://github.com/zouchao2010/Litecore.git",
     "bufferput": "git://github.com/bitpay/node-bufferput.git",
     "buffertools": "*",
     "commander": "^2.3.0",

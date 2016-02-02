@@ -4,13 +4,13 @@
 and websocket API. Litesight API runs in NodeJS and uses LevelDB for storage. 
 
 This is a backend-only service. If you're looking for the web frontend application,
-take a look at https://github.com/pembo210/Litesight.
+take a look at https://github.com/zouchao2010/Litesight.
 
 *Litesight API* allows to develop Litecoin-related applications (such as wallets) that 
 require certain information from the blockchain that litecoind does not provide.
 
 A blockchain explorer front-end has been developed on top of *Litesight API*. It can
-be downloaded at [Github Litesight Repository](https://github.com/pembo210/Litesight).
+be downloaded at [Github Litesight Repository](https://github.com/zouchao2010/Litesight).
 
 
 ## Prerequisites
@@ -37,7 +37,7 @@ litecoind must be running and must have finished downloading the blockchain **be
 
   To install Litesight API, clone the main repository:
 
-    $ git clone https://github.com/pembo210/Litesight-api && cd Litesight-api
+    $ git clone https://github.com/zouchao2010/Litesight-api && cd Litesight-api
 
   Install dependencies:
 
@@ -146,7 +146,7 @@ To run the tests
 ```$ grunt test```
 
 
-Contributions and suggestions are welcome at [Litesight-api github repository](https://github.com/pembo210/Litesight-api).
+Contributions and suggestions are welcome at [Litesight-api github repository](https://github.com/zouchao2010/Litesight-api).
 
 ## Caching schema
 
