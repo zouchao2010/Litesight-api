@@ -70,7 +70,7 @@ BITCOIND_PASS         # RPC password
 BITCOIND_DATADIR      # litecoind datadir. 'testnet3' will be appended automatically if testnet is used. NEED to finish with '/'. e.g: `/vol/data/`
 INSIGHT_NETWORK [= 'livenet' | 'testnet']
 INSIGHT_PORT          # Litesight api port
-INSIGHT_DB            # Path where to store Litesight's internal DB. (defaults to $HOME/.litecoin-insight)
+INSIGHT_DB            # Path where to store Litesight's internal DB. (defaults to $HOME/.litesight)
 INSIGHT_SAFE_CONFIRMATIONS=6  # Nr. of confirmation needed to start caching transaction information   
 INSIGHT_IGNORE_CACHE  # True to ignore cache of spents in transaction, with more than INSIGHT_SAFE_CONFIRMATIONS confirmations. This is useful for tracking double spents for old transactions.
 ENABLE_MAILBOX # if "true" will enable mailbox plugin
@@ -129,7 +129,7 @@ once litecoind is restarted.
 To store the blockchain and address related information, *Litesight-api* uses LevelDB.
 Two DBs are created: txs and blocks. By default these are stored on
 
-  ``~/.litecoin-insight/``
+  ``~/.litesight/``
 
 Please note that some older versions of Litesight-API store that on `<Litesight's root>/db`.
 
